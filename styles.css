@@ -188,6 +188,106 @@ section { position: relative; z-index: 1; }
   font-size: 1.3rem;
 }
 
+/* GAMES */
+.games { padding: 40px 24px 120px; }
+.game-block {
+  max-width: 620px;
+  margin: 0 auto 90px;
+  text-align: center;
+}
+.game-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0 0 8px;
+}
+.game-hint {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin: 0 0 28px;
+}
+.game-win {
+  margin-top: 20px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold);
+  animation: fadeUp 0.6s ease both;
+}
+
+/* puzzle */
+.puzzle-wrap { display: flex; justify-content: center; }
+.puzzle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: min(90vw, 360px);
+  height: min(90vw, 360px);
+  gap: 3px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+.puzzle-tile {
+  background-image: url('assets/photo-puzzle.jpg');
+  background-size: 300% 300%;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+  filter: brightness(0.88);
+}
+.puzzle-tile:hover { filter: brightness(1); }
+.puzzle-tile.selected {
+  filter: brightness(1.15);
+  transform: scale(0.94);
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+.puzzle-tile.solved { filter: brightness(1); }
+
+/* tir */
+.tir-counter {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin: 0 0 16px;
+}
+.tir-arena {
+  position: relative;
+  height: min(60vh, 420px);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(245,234,217,0.1);
+  overflow: hidden;
+}
+.bubble {
+  position: absolute;
+  bottom: -60px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4a2f52, #2f2140);
+  color: var(--cream);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid rgba(231,165,172,0.35);
+  animation: floatUp linear forwards;
+  user-select: none;
+}
+.bubble:hover { border-color: var(--rose); }
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-480px); opacity: 0.9; }
+}
+.bubble-pop {
+  position: absolute;
+  font-size: 1.4rem;
+  pointer-events: none;
+  animation: popFade 0.7s ease forwards;
+}
+@keyframes popFade {
+  from { transform: translateY(0) scale(1); opacity: 1; }
+  to { transform: translateY(-40px) scale(1.4); opacity: 0; }
+}
+
 /* SONG */
 .song {
   padding: 100px 24px;
